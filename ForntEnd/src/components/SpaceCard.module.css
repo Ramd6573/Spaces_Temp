@@ -1,0 +1,200 @@
+/* Space Card Styles */
+.spaceCard {
+  background-color: var(--white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-base);
+  border: 1px solid var(--gray-200);
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.spaceCard:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.spaceCard:hover .image {
+  transform: scale(1.05);
+}
+
+.badge {
+  position: absolute;
+  top: var(--spacing-3);
+  left: var(--spacing-3);
+  background-color: var(--primary-600);
+  color: var(--white);
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.rating {
+  position: absolute;
+  top: var(--spacing-3);
+  right: var(--spacing-3);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: var(--white);
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.content {
+  padding: var(--spacing-4);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--gray-900);
+  margin-bottom: var(--spacing-2);
+  line-height: var(--line-height-tight);
+}
+
+.location {
+  color: var(--gray-600);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-3);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.price {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-600);
+  margin-bottom: var(--spacing-3);
+}
+
+.priceUnit {
+  font-size: var(--font-size-sm);
+  color: var(--gray-500);
+  font-weight: var(--font-weight-normal);
+}
+
+.amenities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-4);
+}
+
+.amenity {
+  background-color: var(--gray-100);
+  color: var(--gray-700);
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.capacity {
+  color: var(--gray-600);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-4);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.actions {
+  margin-top: auto;
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.viewButton {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2) var(--spacing-4);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  background-color: var(--primary-600);
+  color: var(--white);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid var(--primary-600);
+}
+
+.viewButton:hover {
+  background-color: var(--primary-700);
+  border-color: var(--primary-700);
+}
+
+.bookButton {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2) var(--spacing-4);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  background-color: var(--white);
+  color: var(--primary-600);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid var(--primary-600);
+}
+
+.bookButton:hover {
+  background-color: var(--primary-50);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .imageContainer {
+    height: 180px;
+  }
+  
+  .content {
+    padding: var(--spacing-3);
+  }
+  
+  .title {
+    font-size: var(--font-size-base);
+  }
+  
+  .price {
+    font-size: var(--font-size-lg);
+  }
+  
+  .actions {
+    flex-direction: column;
+  }
+} 
