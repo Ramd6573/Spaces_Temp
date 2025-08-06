@@ -1,0 +1,264 @@
+/* Header Styles */
+.header {
+  background-color: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  box-shadow: var(--shadow-sm);
+}
+
+.headerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  text-decoration: none;
+  color: var(--gray-900);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+}
+
+.logoIcon {
+  color: var(--primary-600);
+  font-size: var(--font-size-2xl);
+}
+
+.navigation {
+  display: none;
+  
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8);
+  }
+}
+
+.navLink {
+  color: var(--gray-700);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  transition: color 0.2s ease-in-out;
+  position: relative;
+}
+
+.navLink:hover {
+  color: var(--primary-600);
+}
+
+.navLink.active {
+  color: var(--primary-600);
+}
+
+.navLink.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--primary-600);
+  border-radius: var(--radius-full);
+}
+
+.actions {
+  display: none;
+  
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+  }
+}
+
+.loginButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2) var(--spacing-4);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--gray-700);
+  background-color: transparent;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.loginButton:hover {
+  background-color: var(--gray-50);
+  border-color: var(--gray-400);
+}
+
+.signupButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2) var(--spacing-4);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--white);
+  background-color: var(--primary-600);
+  border: 1px solid var(--primary-600);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.signupButton:hover {
+  background-color: var(--primary-700);
+  border-color: var(--primary-700);
+}
+
+.mobileMenuButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-radius: var(--radius-lg);
+  color: var(--gray-700);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.mobileMenuButton:hover {
+  background-color: var(--gray-100);
+}
+
+.mobileMenuButton.active {
+  background-color: var(--primary-50);
+  color: var(--primary-600);
+}
+
+.mobileMenu {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  z-index: var(--z-dropdown);
+}
+
+.mobileMenu.open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobileNav {
+  padding: var(--spacing-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.mobileNavLink {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-3) var(--spacing-4);
+  color: var(--gray-700);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-lg);
+  transition: all 0.2s ease-in-out;
+}
+
+.mobileNavLink:hover {
+  background-color: var(--gray-50);
+  color: var(--primary-600);
+}
+
+.mobileNavLink.active {
+  background-color: var(--primary-50);
+  color: var(--primary-600);
+}
+
+.mobileActions {
+  padding: var(--spacing-4);
+  border-top: 1px solid var(--gray-200);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.mobileLoginButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3) var(--spacing-4);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--gray-700);
+  background-color: transparent;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.mobileLoginButton:hover {
+  background-color: var(--gray-50);
+  border-color: var(--gray-400);
+}
+
+.mobileSignupButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3) var(--spacing-4);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--white);
+  background-color: var(--primary-600);
+  border: 1px solid var(--primary-600);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.mobileSignupButton:hover {
+  background-color: var(--primary-700);
+  border-color: var(--primary-700);
+}
+
+/* Overlay for mobile menu */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  z-index: var(--z-modal-backdrop);
+}
+
+.overlay.open {
+  opacity: 1;
+  visibility: visible;
+} 
