@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"cd backend && npm i --f && nodemon server\" \"cd FrontEnd && npm i --f && npm start\""
+    "start": "concurrently \"cd backend && npm i --f && nodemon server\" \"cd ForntEnd && npm i --f && npm start\""
   },
   "repository": {
     "type": "git",
