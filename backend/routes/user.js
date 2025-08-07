@@ -1,11 +1,29 @@
-import express, { Router } from 'express';
+import express from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto'
-import { usersModel } from '../model/userModel';
-import { verifyToken } from '../middleware/auth';
+import { usersModel } from '../model/userModel.js';
+import { verifyToken } from '../middleware/auth.js';
 
 const userRouter = express.Router();
+
+userRouter.get('/', async (req,res)=>{
+    try{
+        const userDetails = await usersModel.find({});
+        res.status(200).json({
+            message: "all users fetched successfully",
+            users: userDetails.map(user => ({
+                id: user._id,
+                name: user.name,
+                email: user.email,
+                phone: user.phone,
+                role: user.role
+            }))
+        })
+    }catch(error){
+        res.status(500).json({message: error.message})
+    }
+})
 
 userRouter.post('/register', async (req,res)=>{
     const {name, email, password, phone, role}=req.body;
@@ -18,8 +36,7 @@ userRouter.post('/register', async (req,res)=>{
         const salt = await bcrypt.genSalt(10);
         const passwordHash = await bcrypt.hash(password,salt);
 
-        const newUser = new User({name,email,passwordHash,phone,role})
-        await newUser.save();
+        const newUser = await usersModel.create({name,email,passwordHash,phone,role})
 
         const token = jwt.sign(
             {id:newUser._id, role:newUser.role},
@@ -40,10 +57,11 @@ userRouter.post('/register', async (req,res)=>{
     }
 })
 
-userRouter.post('login', async (req,res)=>{
+userRouter.post('/login', async (req,res)=>{
     const { email, password }= req.body;
     try{
         const user = await usersModel.findOne({email});
+        
         if(!user){
             res.status(400).json({message: "Invalid email or password"});
         }
@@ -83,7 +101,7 @@ userRouter.post('/forgot-password', async (req,res)=>{
         }
 
         const resetToken = crypto.randomBytes(32).toString('hex');
-        const resetTokenExpiry = Date.now + 1000 * 60 * 10; //10 min
+        const resetTokenExpiry = Date.now() + 1000 * 60 * 10; //10 min
 
         resetTokens[resetToken]= {userId: user._id, expires: resetTokenExpiry}
 
