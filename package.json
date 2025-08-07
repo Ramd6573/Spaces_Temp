@@ -1,0 +1,24 @@
+{
+  "name": "spaces_temp",
+  "version": "1.0.0",
+  "description": "A modern React.js application for booking coworking and creative spaces, built with Tailwind CSS and featuring a role-based architecture.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"cd backend && npm i --f && nodemon server\" \"cd FrontEnd && npm i --f && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ramd6573/Spaces_Temp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ramd6573/Spaces_Temp/issues"
+  },
+  "homepage": "https://github.com/Ramd6573/Spaces_Temp#readme",
+  "dependencies": {
+    "concurrently": "^9.2.0"
+  }
+}
